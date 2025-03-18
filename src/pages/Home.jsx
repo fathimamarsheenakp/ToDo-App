@@ -12,21 +12,25 @@ export default function Home() {
 
   // Add task to "todo" category
   const addTask = () => {
-    if (task.trim() === '') {
+    if (task.trim() !== '') {
       setTaskList(prevTasks => ({
         ...prevTasks,
         todo : [...prevTasks.todo, task],
       }));
-      setTask('');
+      setTask(''); // Clear input field
     }
   }
 
   // Move task to "ongoing" category
   const moveTask = (currentCategory, targetCategory, taskToMove) => {
     setTaskList((prevTasks) => {
+
+      // Filter out the task to move from the current category
       const updatedCurrent = prevTasks[currentCategory].filter(
         (t) => t !== taskToMove
       )
+
+      // Add the task to move to the target category
       const updatedTarget = [...prevTasks[targetCategory], taskToMove]
       return {
         ...prevTasks,
@@ -57,18 +61,62 @@ export default function Home() {
             ADD TASK
           </button>
       </form>
+
+      
       <div className='task-sections'>
+
+        {/* // Display tasks in the "todo" category */}
         <div className='task-section'>
           <h2>Tasks</h2>
+          <ul>
+            {taskList.todo.map((t, index) => (
+              <li key = {index}>
+                {t}
+                <button onClick={() => moveTask('todo', 'ongoing', t)}>
+                  Move to Ongoing
+                </button>
+                <button onClick={() => moveTask('todo', 'completed', t)}>
+                  Move to Completed
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         
-
+        {/* // Display tasks in the "ongoing" category */}
         <div className='task-sections'>
           <h2>OnGoing Tasks</h2>
+          <ul>
+            {taskList.ongoing.map((t, index) => (
+              <li key = {index}>
+                {t}
+                <button onClick={() => moveTask('ongoing', 'todo', t)}>
+                  Move to todo
+                </button>
+                <button onClick={() => moveTask('ongoing', 'completed', t)}>
+                  Move to Completed
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
 
+        {/* // Display tasks in the "completed" category */}
         <div className='task-sections'>
           <h2>Completed Tasks</h2>
+          <ul>
+            {taskList.completed.map((t, index) => (
+              <li key = {index}>
+                {t}
+                <button onClick={() => moveTask('completed', 'todo', t)}>
+                  Move to todo
+                </button>
+                <button onClick={() => moveTask('completed', 'ongoing', t)}>
+                  Move to Completed
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
