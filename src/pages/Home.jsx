@@ -84,7 +84,7 @@ export default function Home() {
         </div>
         
         {/* // Display tasks in the "ongoing" category */}
-        <div className='task-sections'>
+        <div className='task-section'>
           <h2>OnGoing Tasks</h2>
           <ul>
             {taskList.ongoing.map((t, index) => (
@@ -102,7 +102,7 @@ export default function Home() {
         </div>
 
         {/* // Display tasks in the "completed" category */}
-        <div className='task-sections'>
+        <div className='task-section'>
           <h2>Completed Tasks</h2>
           <ul>
             {taskList.completed.map((t, index) => (
