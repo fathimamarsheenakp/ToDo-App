@@ -1,6 +1,46 @@
-.demo{
-    background-color: aquamarine;
-    height: 200px;
-    width: 400px;
-    border: 2px solid black;
+.app {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home {
+    padding: 20px;
+}
+
+.task-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.task-input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-task-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-task-button:hover {
+    background-color: #218838;  
+}
+
+.task-section {
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    width: 30%;
+    padding: 10px;
+}
+
+.task-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
 }
