@@ -3,10 +3,10 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <>
-      <h1>TO-DO APP</h1>
+    <div className='app'>
+      <h1 className='app'>TO-DO APP</h1>
       <Home/>
-    </>
+    </div>
   );
 }
 

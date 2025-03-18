@@ -18,6 +18,8 @@ export default function Home() {
         todo : [...prevTasks.todo, task],
       }));
       setTask(''); // Clear input field
+    } else {
+      alert('Task cannot be empty!') // Alert user if task is empty
     }
   }
 
@@ -36,6 +38,19 @@ export default function Home() {
         ...prevTasks,
         [currentCategory]: updatedCurrent,
         [targetCategory]: updatedTarget
+      }
+    })
+  }
+
+  // Clear specific task category
+  const clearTask = (category, taskToClear) => {
+    setTaskList((prevTasks) => {
+      const updatedTasks = prevTasks[category].filter(
+        (t) => t !== taskToClear
+      )
+      return {
+        ...prevTasks,
+        [category]: updatedTasks
       }
     })
   }
@@ -73,10 +88,13 @@ export default function Home() {
               <li key = {index}>
                 {t}
                 <button onClick={() => moveTask('todo', 'ongoing', t)}>
-                  Move to Ongoing
+                  Start Task
                 </button>
                 <button onClick={() => moveTask('todo', 'completed', t)}>
-                  Move to Completed
+                  Mark as Completed
+                </button>
+                <button onClick={() => clearTask('todo', t)}>
+                  Delete Task
                 </button>
               </li>
             ))}
@@ -91,10 +109,13 @@ export default function Home() {
               <li key = {index}>
                 {t}
                 <button onClick={() => moveTask('ongoing', 'todo', t)}>
-                  Move to todo
+                  Move Back
                 </button>
                 <button onClick={() => moveTask('ongoing', 'completed', t)}>
-                  Move to Completed
+                  Mark as Completed
+                </button>
+                <button onClick={() => clearTask('ongoing', t)}>
+                  Delete Task
                 </button>
               </li>
             ))}
@@ -109,10 +130,13 @@ export default function Home() {
               <li key = {index}>
                 {t}
                 <button onClick={() => moveTask('completed', 'todo', t)}>
-                  Move to todo
+                  Move Back
                 </button>
                 <button onClick={() => moveTask('completed', 'ongoing', t)}>
-                  Move to Completed
+                  Mark as Completed
+                </button>
+                <button onClick={() => clearTask('completed', t)}>
+                  Clear
                 </button>
               </li>
             ))}
