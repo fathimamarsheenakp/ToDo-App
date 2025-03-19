@@ -89,10 +89,15 @@ export default function Home() {
             {taskList.todo.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button onClick={() => moveTask('todo', 'ongoing', t)}>
+                <button 
+                  onClick={() => moveTask('todo', 'ongoing', t)}
+                  title='Start Task'  
+                  >
                   Start
                 </button>
-                <button onClick={() => {
+                <button 
+                  title='Complete Task'
+                  onClick={() => {
                   const confirm = window.confirm('Are you sure you want to mark this task as completed?');
                   if (confirm) {
                     moveTask('ongoing', 'completed', t);
@@ -100,7 +105,9 @@ export default function Home() {
                 }}>
                   <FontAwesomeIcon icon={faCheck} />
                 </button>
-                <button onClick={() => clearTask('todo', t)}>
+                <button 
+                  title='Delete Task'
+                  onClick={() => clearTask('todo', t)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
@@ -115,11 +122,15 @@ export default function Home() {
             {taskList.ongoing.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button onClick={() => moveTask('ongoing', 'todo', t)}>
+                <button 
+                  title='Move back'
+                  onClick={() => moveTask('ongoing', 'todo', t)}>
                   <FontAwesomeIcon icon={faArrowLeft} />
                 </button>
 
-                <button onClick={() => {
+                <button 
+                  title='Complete Task'
+                  onClick={() => {
                   const confirm = window.confirm('Are you sure you want to mark this task as completed?');
                   if (confirm) {
                     moveTask('ongoing', 'completed', t);
@@ -128,7 +139,9 @@ export default function Home() {
                   <FontAwesomeIcon icon={faCheck} />
                 </button>
 
-                <button onClick={() => clearTask('ongoing', t)}>
+                <button 
+                  title='Delete Task'
+                  onClick={() => clearTask('ongoing', t)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
@@ -144,11 +157,16 @@ export default function Home() {
               <li key = {index}>
                 {t}
 
-                <button onClick={() => moveTask('completed', 'todo', t)}>
+                <button 
+                  title='Redo Task'
+                  onClick={() => moveTask('completed', 'todo', t)}>
                   <FontAwesomeIcon icon={faRedo} />
                 </button>
                 
-                <button className='deleteButton' onClick={() => clearTask('completed', t)}>
+                <button 
+                  title='Delete Task'
+                  className='deleteButton' 
+                  onClick={() => clearTask('completed', t)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
