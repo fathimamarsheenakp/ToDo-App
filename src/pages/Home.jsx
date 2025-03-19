@@ -162,6 +162,7 @@ export default function Home() {
                 {t}
 
                 <div className='task-buttons'>
+                  
                   <button 
                     title='Redo Task'
                     onClick={() => moveTask('completed', 'todo', t)}>
@@ -174,6 +175,7 @@ export default function Home() {
                     onClick={() => clearTask('completed', t)}>
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
+
                 </div>
               </li>
             ))}
