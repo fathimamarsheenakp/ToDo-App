@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedo, faTrash, faCheck, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
 
@@ -88,7 +90,7 @@ export default function Home() {
               <li key = {index}>
                 {t}
                 <button onClick={() => moveTask('todo', 'ongoing', t)}>
-                  Start Task
+                  Start
                 </button>
                 <button onClick={() => {
                   const confirm = window.confirm('Are you sure you want to mark this task as completed?');
@@ -96,10 +98,10 @@ export default function Home() {
                     moveTask('ongoing', 'completed', t);
                   }
                 }}>
-                  Complete
+                  <FontAwesomeIcon icon={faCheck} />
                 </button>
                 <button onClick={() => clearTask('todo', t)}>
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
             ))}
@@ -114,7 +116,7 @@ export default function Home() {
               <li key = {index}>
                 {t}
                 <button onClick={() => moveTask('ongoing', 'todo', t)}>
-                  Move Back
+                  <FontAwesomeIcon icon={faArrowLeft} />
                 </button>
 
                 <button onClick={() => {
@@ -123,11 +125,11 @@ export default function Home() {
                     moveTask('ongoing', 'completed', t);
                   }
                 }}>
-                  Complete
+                  <FontAwesomeIcon icon={faCheck} />
                 </button>
 
                 <button onClick={() => clearTask('ongoing', t)}>
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
             ))}
@@ -143,11 +145,11 @@ export default function Home() {
                 {t}
 
                 <button onClick={() => moveTask('completed', 'todo', t)}>
-                  Re-do
+                  <FontAwesomeIcon icon={faRedo} />
                 </button>
                 
                 <button className='deleteButton' onClick={() => clearTask('completed', t)}>
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </li>
             ))}
