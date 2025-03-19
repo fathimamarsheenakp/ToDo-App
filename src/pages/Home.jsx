@@ -90,11 +90,16 @@ export default function Home() {
                 <button onClick={() => moveTask('todo', 'ongoing', t)}>
                   Start Task
                 </button>
-                <button onClick={() => moveTask('todo', 'completed', t)}>
-                  Mark as Completed
+                <button onClick={() => {
+                  const confirm = window.confirm('Are you sure you want to mark this task as completed?');
+                  if (confirm) {
+                    moveTask('ongoing', 'completed', t);
+                  }
+                }}>
+                  Complete
                 </button>
                 <button onClick={() => clearTask('todo', t)}>
-                  Delete Task
+                  Delete
                 </button>
               </li>
             ))}
@@ -111,11 +116,18 @@ export default function Home() {
                 <button onClick={() => moveTask('ongoing', 'todo', t)}>
                   Move Back
                 </button>
-                <button onClick={() => moveTask('ongoing', 'completed', t)}>
-                  Mark as Completed
+
+                <button onClick={() => {
+                  const confirm = window.confirm('Are you sure you want to mark this task as completed?');
+                  if (confirm) {
+                    moveTask('ongoing', 'completed', t);
+                  }
+                }}>
+                  Complete
                 </button>
+
                 <button onClick={() => clearTask('ongoing', t)}>
-                  Delete Task
+                  Delete
                 </button>
               </li>
             ))}
@@ -129,14 +141,8 @@ export default function Home() {
             {taskList.completed.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button onClick={() => moveTask('completed', 'todo', t)}>
-                  Move Back
-                </button>
-                <button onClick={() => moveTask('completed', 'ongoing', t)}>
-                  Mark as Completed
-                </button>
                 <button onClick={() => clearTask('completed', t)}>
-                  Clear
+                  Delete
                 </button>
               </li>
             ))}
