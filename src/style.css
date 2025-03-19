@@ -113,6 +113,12 @@ body {
     background-color: #e9ecef;
 }
 
+.task-buttons {
+    display: flex;
+    gap: 4px; /* Reduce space between buttons */
+    justify-content: flex-start; /* Align to left */
+}
+
  .task-section button {
     display: flex;
     align-items: center;
