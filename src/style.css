@@ -101,29 +101,33 @@ body {
 .task-section li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 12px;
+    align-items: center;
+    margin-bottom: 6px;
     padding: 10px;
-    /* border: 1px solid #ddd; */
     border-radius: 6px;
     background-color: #f1f1f1;
     transition: background-color 0.3s ease;
-    /* flex-direction: column; */
-    /* gap: 5px; */
 }
 
 .task-section li:hover {
     background-color: #e9ecef;
 }
 
-.task-section button {
-    margin-left: 10px;
-    padding: 8px;
+ .task-section button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-left: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
     cursor: pointer;
     border: none;
     font-size: 14px;
     transition: background-color 0.3s ease; 
     border-radius: 6px;   
     color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .task-section button:nth-child(1) {
@@ -157,5 +161,5 @@ body {
 
 .task-section button.deleteButton:hover {
     background-color: #c82333;
-}
+} 
 
