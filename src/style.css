@@ -150,3 +150,12 @@ body {
 .task-section button:nth-child(3):hover {
     background-color: #c82333;
 }
+
+.task-section button.deleteButton {
+    background-color: #dc3545;
+}
+
+.task-section button.deleteButton:hover {
+    background-color: #c82333;
+}
+
