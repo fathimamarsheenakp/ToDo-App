@@ -89,27 +89,29 @@ export default function Home() {
             {taskList.todo.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button 
-                  onClick={() => moveTask('todo', 'ongoing', t)}
-                  title='Start Task'  
-                  >
-                  Start
-                </button>
-                <button 
-                  title='Complete Task'
-                  onClick={() => {
-                  const confirm = window.confirm('Are you sure you want to mark this task as completed?');
-                  if (confirm) {
-                    moveTask('ongoing', 'completed', t);
-                  }
-                }}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </button>
-                <button 
-                  title='Delete Task'
-                  onClick={() => clearTask('todo', t)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
+                <div className='task-buttons'>
+                  <button 
+                    onClick={() => moveTask('todo', 'ongoing', t)}
+                    title='Start Task'  
+                    >
+                    Start
+                  </button>
+                  <button 
+                    title='Complete Task'
+                    onClick={() => {
+                    const confirm = window.confirm('Are you sure you want to mark this task as completed?');
+                    if (confirm) {
+                      moveTask('ongoing', 'completed', t);
+                    }
+                  }}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </button>
+                  <button 
+                    title='Delete Task'
+                    onClick={() => clearTask('todo', t)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -122,28 +124,30 @@ export default function Home() {
             {taskList.ongoing.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button 
-                  title='Move back'
-                  onClick={() => moveTask('ongoing', 'todo', t)}>
-                  <FontAwesomeIcon icon={faArrowLeft} />
-                </button>
+                <div className='task-buttons'>
+                  <button 
+                    title='Move back'
+                    onClick={() => moveTask('ongoing', 'todo', t)}>
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                  </button>
 
-                <button 
-                  title='Complete Task'
-                  onClick={() => {
-                  const confirm = window.confirm('Are you sure you want to mark this task as completed?');
-                  if (confirm) {
-                    moveTask('ongoing', 'completed', t);
-                  }
-                }}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </button>
+                  <button 
+                    title='Complete Task'
+                    onClick={() => {
+                    const confirm = window.confirm('Are you sure you want to mark this task as completed?');
+                    if (confirm) {
+                      moveTask('ongoing', 'completed', t);
+                    }
+                  }}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </button>
 
-                <button 
-                  title='Delete Task'
-                  onClick={() => clearTask('ongoing', t)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
+                  <button 
+                    title='Delete Task'
+                    onClick={() => clearTask('ongoing', t)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -157,18 +161,20 @@ export default function Home() {
               <li key = {index}>
                 {t}
 
-                <button 
-                  title='Redo Task'
-                  onClick={() => moveTask('completed', 'todo', t)}>
-                  <FontAwesomeIcon icon={faRedo} />
-                </button>
-                
-                <button 
-                  title='Delete Task'
-                  className='deleteButton' 
-                  onClick={() => clearTask('completed', t)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
+                <div className='task-butto'>
+                  <button 
+                    title='Redo Task'
+                    onClick={() => moveTask('completed', 'todo', t)}>
+                    <FontAwesomeIcon icon={faRedo} />
+                  </button>
+                  
+                  <button 
+                    title='Delete Task'
+                    className='deleteButton' 
+                    onClick={() => clearTask('completed', t)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
