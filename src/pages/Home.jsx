@@ -161,7 +161,7 @@ export default function Home() {
               <li key = {index}>
                 {t}
 
-                <div className='task-butto'>
+                <div className='task-buttons'>
                   <button 
                     title='Redo Task'
                     onClick={() => moveTask('completed', 'todo', t)}>
