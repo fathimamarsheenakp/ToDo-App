@@ -141,7 +141,12 @@ export default function Home() {
             {taskList.completed.map((t, index) => (
               <li key = {index}>
                 {t}
-                <button onClick={() => clearTask('completed', t)}>
+
+                <button onClick={() => moveTask('completed', 'todo', t)}>
+                  Re-do
+                </button>
+                
+                <button className='deleteButton' onClick={() => clearTask('completed', t)}>
                   Delete
                 </button>
               </li>
